@@ -33,7 +33,7 @@
 </template>
 
 <script>
-// import axios from "@nuxtjs/axios";
+import axios from "@nuxtjs/axios";
 
 export default {
   props: {

@@ -71,8 +71,15 @@ export default {
     "$route": "fetchData"
   },
   async fetch() {
-    const pokemonInfo = await this.$axios.$get(this.pokemonApi);
-    this.pokemonInfo = pokemonInfo;
+   await this.$axios.$get(this.pokemonApi).then(
+    response => {
+       this.pokemonInfo=response;
+       // console.log(response);
+     }
+   ).catch(error=>{
+     console.log(error);
+   });
+
   },
   methods: {
     statPercent(stat) {
