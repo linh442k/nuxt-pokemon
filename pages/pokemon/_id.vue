@@ -14,10 +14,9 @@
           max-height="120"
           max-width="120"
           :src="{src: pokemonInfo.sprites.front_default}"
+          @load="imgLoading=false;"
         >
-          <template #placeholder>
-            Loading...
-          </template>
+          <p v-if="imgLoading">Loading Image...</p>
         </v-img>
         <div class="stats d-flex flex-wrap text-center">
           <div v-for="(stat, index) in pokemonInfo.stats"
@@ -59,7 +58,8 @@ export default {
     return {
       color: ["teal", "red", "blue", "orange", "cyan", "purple"],
       rotate: [-90, 90, 180, 360],
-      pokemonInfo: null
+      pokemonInfo: null,
+      imgLoading: true,
     };
   },
   computed: {
